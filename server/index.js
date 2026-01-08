@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./database/db.js";
 import userRoutes from "./routes/user.js";
+import adminRoutes from "./routes/admin.js";
 import cors from "cors";
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
@@ -19,6 +20,8 @@ app.use(cors());
 
 // using routes
 app.use("/api", userRoutes);
+app.use("/api", adminRoutes);
+
 
 app.get("/", (req, res) => {
   res.send("Server is Running");
