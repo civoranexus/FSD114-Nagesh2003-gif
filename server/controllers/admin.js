@@ -92,3 +92,19 @@ export const deleteCourse = ErrorHandler(async (req, res) => {
     message: "Course Deleted",
   });
 });
+
+export const getAllStats = ErrorHandler(async (req, res) => {
+  const totalCoures = (await Courses.find()).length;
+  const totalLectures = (await Lecture.find()).length;
+  const totalUsers = (await User.find()).length;
+
+  const stats = {
+    totalCoures,
+    totalLectures,
+    totalUsers,
+  };
+
+  res.json({
+    stats,
+  });
+});

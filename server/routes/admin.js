@@ -3,8 +3,10 @@ import { isAdmin, isAuth } from "../middlewares/auth.js";
 import {
   addLectures,
   createCourse,
-    deleteCourse,
+  deleteCourse,
   deleteLecture,
+  getAllStats,
+
 } from "../controllers/admin.js";
 import { uploadFiles } from "../middlewares/multer.js";
 
@@ -15,5 +17,7 @@ router.post("/course/:id", isAuth, isAdmin, uploadFiles, addLectures);
 router.delete("/course/:id", isAuth, isAdmin, deleteCourse);
 router.delete("/lecture/:id", isAuth, isAdmin, deleteLecture);
 
+
+router.get("/stats", isAuth, isAdmin, getAllStats);
 
 export default router;
