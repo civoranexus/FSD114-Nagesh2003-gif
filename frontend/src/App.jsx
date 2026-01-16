@@ -7,21 +7,26 @@ import Login from './pages/auth/Login'
 import Register from './pages/auth/Register'
 import Verify from './pages/auth/Verify'
 import SiteFooter from './components/footer/footer'
+import About from './pages/about/About'
+import Account from './pages/account/Account'
+import { useAuth } from './context/AuthContext.jsx'
 
 
 const App = () => {
+  const { authenticated, currentUser } =useAuth()
   return (
     <BrowserRouter>
      <div className="app-layout"></div>
-    <Header/>
+    <Header authenticated={authenticated} />
     <div className="page-content"></div>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/courses' element={<div>Courses Page</div>} />
-        <Route path='/about' element={<div>About Page</div>} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/verify' element={<Verify />} />
+        <Route path='/register' element={authenticated?<Home />:<Register />} />
+        <Route path='/login' element={authenticated?<Home />:<Login />} />
+        <Route path='/verify' element={authenticated?<Home />:<Verify />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/account' element={authenticated?<Account currentUser={currentUser} />:<Login />} />
       </Routes>
       <SiteFooter />
     </BrowserRouter>
