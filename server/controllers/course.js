@@ -5,6 +5,7 @@ import { Lecture } from "../models/Lecture.js";
 import { User } from "../models/User.js";
 import crypto from "crypto";
 import { Payment } from "../models/Payment.js";
+import { Progress } from "../models/Progress.js";
 
 export const getAllCourses = ErrorHandler(async (req, res) => {
   const courses = await Courses.find();

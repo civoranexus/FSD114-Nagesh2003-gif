@@ -13,6 +13,9 @@ import { useAuth } from "./context/AuthContext";
 import LoadingScreen from './components/loading/Loader'
 import Courses from './pages/courses/Courses'
 import CourseInfo from './pages/CourseInfo/CourseInfo'
+import PaymentSuccess from './pages/paymentsuccess/PaymentSuccess'
+import Dashboard from './pages/dashboard/Dashboard'
+import LearnCourse from './pages/learncourse/LearnCourse'
 
 const App = () => {
   const { authenticated, currentUser,initialLoading } =useAuth()
@@ -33,7 +36,19 @@ const App = () => {
         <Route path='/about' element={<About />} />
          <Route
               path="/course/:id"
-              element={authenticated ? <CourseInfo /> : <Login />}
+              element={authenticated ? <CourseInfo user={currentUser} /> : <Login />}
+            />
+            <Route
+              path="/course/study/:id"
+              element={authenticated ? <LearnCourse user={currentUser} /> : <Login />}
+            />
+              <Route
+              path="/payment-success/:id"
+              element={authenticated ? <PaymentSuccess user={currentUser} /> : <Login />}
+            />
+              <Route
+              path="/:id/dashboard"
+              element={authenticated ? <Dashboard user={currentUser} /> : <Login />}
             />
         <Route path='/account' element={authenticated?<Account currentUser={currentUser} />:<Login />} />
       </Routes>
