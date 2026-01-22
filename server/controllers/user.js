@@ -3,7 +3,8 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import sendMail from "../middlewares/sendMail.js";
 import ErrorHandler from "../middlewares/ErrorHandler.js";
-
+import { Progress } from "../models/Progress.js";
+import { Lecture } from "../models/Lecture.js";
 
 
 export const register = ErrorHandler(async (req, res) => {
@@ -109,3 +110,92 @@ export const myProfile = ErrorHandler(async (req, res) => {
 
   res.json({ user });
 });
+
+export const addProgress = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const { course, lectureId } = req.query;
+
+    if (!course || !lectureId) {
+      return res.status(400).json({
+        message: "Course ID and Lecture ID are required",
+      });
+    }
+
+    // Find progress document
+    let progress = await Progress.findOne({
+      user: userId,
+      course,
+    });
+
+    // If not exists → create new
+    if (!progress) {
+      progress = await Progress.create({
+        user: userId,
+        course,
+        completedLectures: [lectureId],
+      });
+    } else {
+      // Avoid duplicate lecture entry
+      if (!progress.completedLectures.includes(lectureId)) {
+        progress.completedLectures.push(lectureId);
+        await progress.save();
+      }
+    }
+
+    res.status(200).json({
+      message: "Lecture marked as completed",
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      message: "Failed to update progress",
+    });
+  }
+};
+
+export const getYourProgress = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const { course } = req.query;
+
+    if (!course) {
+      return res.status(400).json({
+        message: "Course ID is required",
+      });
+    }
+
+    // Total lectures in course
+    const totalLectures = await Lecture.countDocuments({
+      course,
+    });
+
+    // User progress
+    const progress = await Progress.findOne({
+      user: userId,
+      course,
+    });
+
+    const completedLecturesCount =
+      progress?.completedLectures.length || 0;
+
+    const progressPercentage =
+      totalLectures === 0
+        ? 0
+        : Math.round(
+            (completedLecturesCount / totalLectures) * 100
+          );
+
+    res.status(200).json({
+      completedLectures: completedLecturesCount,
+      allLectures: totalLectures,
+      courseProgressPercentage: progressPercentage,
+      progress: progress ? [progress] : [],
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      message: "Failed to fetch progress",
+    });
+  }
+};

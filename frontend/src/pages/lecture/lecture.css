@@ -1,0 +1,88 @@
+.lecture-layout {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  min-height: 80vh;
+}
+
+.video-section {
+  flex: 2;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.video-section video {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.lecture-item {
+  background: #fff;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lecture-item:hover,
+.lecture-item.active {
+  background: #8a4baf;
+  color: #fff;
+}
+
+.tick {
+  color: lime;
+}
+
+.delete-btn {
+  width: 100%;
+  margin-top: 5px;
+  background: #ff4d4f;
+  color: #fff;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.progress-box {
+  width: 60%;
+  margin: 10px auto;
+  background: #333;
+  color: #fff;
+  padding: 8px;
+  text-align: center;
+  border-radius: 6px;
+}
+
+.lecture-form {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.lecture-form input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .lecture-layout {
+    flex-direction: column;
+  }
+
+  .progress-box {
+    width: 90%;
+  }
+}

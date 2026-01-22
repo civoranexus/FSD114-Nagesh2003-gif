@@ -31,7 +31,6 @@ app.use("/api", adminRoutes);
 app.use("/api", courseRoutes);
 
 
-
 app.get("/", (req, res) => {
   res.send("Server is Running");
 });

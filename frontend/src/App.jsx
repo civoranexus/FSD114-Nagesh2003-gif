@@ -16,6 +16,8 @@ import CourseInfo from './pages/CourseInfo/CourseInfo'
 import PaymentSuccess from './pages/paymentsuccess/PaymentSuccess'
 import Dashboard from './pages/dashboard/Dashboard'
 import LearnCourse from './pages/learncourse/LearnCourse'
+import Lecture from './pages/lecture/Lecture'
+
 
 const App = () => {
   const { authenticated, currentUser,initialLoading } =useAuth()
@@ -37,6 +39,10 @@ const App = () => {
          <Route
               path="/course/:id"
               element={authenticated ? <CourseInfo user={currentUser} /> : <Login />}
+            />
+              <Route
+              path="/lectures/:id"
+              element={authenticated ? <Lecture user={currentUser} /> : <Login />}
             />
             <Route
               path="/course/study/:id"

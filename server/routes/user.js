@@ -3,7 +3,9 @@ import {
   register,
   verifyUser,
   myProfile,
-  loginUser
+  loginUser,
+  addProgress
+  ,getYourProgress
 } from "../controllers/user.js";
 import { isAuth } from "../middlewares/auth.js";
 
@@ -14,6 +16,8 @@ router.post("/user/register", register);
 router.post("/user/verify", verifyUser);
 router.post("/user/login", loginUser);
 router.get("/user/me", isAuth, myProfile);
+router.post("/user/progress", isAuth, addProgress);
+router.get("/user/progress", isAuth, getYourProgress);
 
 
 export default router;
