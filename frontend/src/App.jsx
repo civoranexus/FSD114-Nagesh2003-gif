@@ -17,10 +17,11 @@ import PaymentSuccess from './pages/paymentsuccess/PaymentSuccess'
 import Dashboard from './pages/dashboard/Dashboard'
 import LearnCourse from './pages/learncourse/LearnCourse'
 import Lecture from './pages/lecture/Lecture'
-
+import AdminDashboard from './admin/Dashboard/AdminDashboard'
+import AdminCourses from './admin/Courses/AdminCourses'
 
 const App = () => {
-  const { authenticated, currentUser,initialLoading } =useAuth()
+  const { authenticated, currentUser, initialLoading } = useAuth()
   return (
     <>
     {
@@ -40,6 +41,10 @@ const App = () => {
               path="/course/:id"
               element={authenticated ? <CourseInfo user={currentUser} /> : <Login />}
             />
+               <Route
+              path="/admin/course"
+              element={authenticated ? <AdminCourses user={currentUser} /> : <Login />}
+            />
               <Route
               path="/lectures/:id"
               element={authenticated ? <Lecture user={currentUser} /> : <Login />}
@@ -47,6 +52,10 @@ const App = () => {
             <Route
               path="/course/study/:id"
               element={authenticated ? <LearnCourse user={currentUser} /> : <Login />}
+            />
+            <Route
+              path="/admin/dashboard"
+              element={authenticated ? <AdminDashboard user={currentUser} /> : <Login />}
             />
               <Route
               path="/payment-success/:id"
