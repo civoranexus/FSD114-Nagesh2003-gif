@@ -6,7 +6,6 @@ import { promisify } from "util";
 import fs from "fs";
 import { User } from "../models/User.js";
 
-
 export const createCourse = ErrorHandler(async (req, res) => {
   const { title, description, category, createdBy, duration, price } = req.body;
 
@@ -107,4 +106,38 @@ export const getAllStats = ErrorHandler(async (req, res) => {
   res.json({
     stats,
   });
+});
+
+export const getAllUser = ErrorHandler(async (req, res) => {
+  const users = await User.find({ _id: { $ne: req.user._id } }).select(
+    "-password"
+  );
+
+  res.json({ users });
+});
+
+export const updateRole = ErrorHandler(async (req, res) => {
+  if (req.user.mainrole !== "superadmin")
+    return res.status(403).json({
+      message: "This endpoint is assign to superadmin",
+    });
+  const user = await User.findById(req.params.id);
+
+  if (user.role === "user") {
+    user.role = "admin";
+    await user.save();
+
+    return res.status(200).json({
+      message: "Role updated to admin",
+    });
+  }
+
+  if (user.role === "admin") {
+    user.role = "user";
+    await user.save();
+
+    return res.status(200).json({
+      message: "Role updated",
+    });
+  }
 });

@@ -1,7 +1,7 @@
 import { User } from "../models/User.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import sendMail from "../middlewares/sendMail.js";
+import sendMail, { sendForgotMail } from "../middlewares/sendMail.js";
 import ErrorHandler from "../middlewares/ErrorHandler.js";
 import { Progress } from "../models/Progress.js";
 import { Lecture } from "../models/Lecture.js";
@@ -111,7 +111,7 @@ export const myProfile = ErrorHandler(async (req, res) => {
   res.json({ user });
 });
 
-export const addProgress = async (req, res) => {
+export const addProgress = ErrorHandler(async (req, res) => {
   try {
     const userId = req.user._id;
     const { course, lectureId } = req.query;
@@ -152,9 +152,9 @@ export const addProgress = async (req, res) => {
       message: "Failed to update progress",
     });
   }
-};
+});
 
-export const getYourProgress = async (req, res) => {
+export const getYourProgress = ErrorHandler(async (req, res) => {
   try {
     const userId = req.user._id;
     const { course } = req.query;
@@ -198,4 +198,61 @@ export const getYourProgress = async (req, res) => {
       message: "Failed to fetch progress",
     });
   }
-};
+});
+
+export const forgotPassword = ErrorHandler(async (req, res) => {
+  const { email } = req.body;
+
+  const user = await User.findOne({ email });
+
+  if (!user)
+    return res.status(404).json({
+      message: "No User with this email",
+    });
+
+  const token = jwt.sign({ email }, process.env.Forgot_Secret);
+
+  const data = { email, token };
+
+  await sendForgotMail("E learning", data);
+
+  user.resetPasswordExpire = Date.now() + 5 * 60 * 1000;
+
+  await user.save();
+
+  res.json({
+    message: "Reset Password Link is send to you mail",
+  });
+});
+
+export const resetPassword = ErrorHandler(async (req, res) => {
+  const decodedData = jwt.verify(req.query.token, process.env.Forgot_Secret);
+
+  const user = await User.findOne({ email: decodedData.email });
+
+  if (!user)
+    return res.status(404).json({
+      message: "No user with this email",
+    });
+
+  if (user.resetPasswordExpire === null)
+    return res.status(400).json({
+      message: "Token Expired",
+    });
+
+  if (user.resetPasswordExpire < Date.now()) {
+    return res.status(400).json({
+      message: "Token Expired",
+    });
+  }
+
+  const password = await bcrypt.hash(req.body.password, 10);
+
+  user.password = password;
+
+  user.resetPasswordExpire = null;
+
+  await user.save();
+
+  res.json({ message: "Password Reset" });
+});

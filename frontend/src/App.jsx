@@ -19,6 +19,9 @@ import LearnCourse from './pages/learncourse/LearnCourse'
 import Lecture from './pages/lecture/Lecture'
 import AdminDashboard from './admin/Dashboard/AdminDashboard'
 import AdminCourses from './admin/Courses/AdminCourses'
+import AdminUsers from './admin/Users/AdminUsers'
+import ForgotPassword from './pages/auth/ForgotPassword'
+import ResetPassword from './pages/auth/ResetPassword'
 
 const App = () => {
   const { authenticated, currentUser, initialLoading } = useAuth()
@@ -44,6 +47,18 @@ const App = () => {
                <Route
               path="/admin/course"
               element={authenticated ? <AdminCourses user={currentUser} /> : <Login />}
+            />
+            <Route
+              path="/admin/users"
+              element={authenticated ? <AdminUsers user={currentUser} /> : <Login />}
+            />
+             <Route
+              path="/forgot"
+              element={authenticated ? <Home /> : <ForgotPassword />}
+            />
+            <Route
+              path="/reset-password/:token"
+              element={authenticated ? <Home /> : <ResetPassword />}
             />
               <Route
               path="/lectures/:id"

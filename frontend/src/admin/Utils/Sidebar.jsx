@@ -25,7 +25,7 @@ const Sidebar = () => {
           </Link>
         </li>
 
-        {currentUser?.mainrole === "superadmin" && (
+        {currentUser && currentUser.mainrole === "superadmin" && (
           <li className="menu-item">
             <Link to="/admin/users">
               <FaUserAlt className="menu-icon" />
