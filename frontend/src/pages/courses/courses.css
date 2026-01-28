@@ -1,0 +1,36 @@
+.courses-wrapper {
+  padding: 90px 20px;
+  background: linear-gradient(to bottom, #f8f9ff, #ffffff);
+  min-height: 70vh;
+  text-align: center;
+}
+
+.courses-header {
+  margin-bottom: 50px; 
+}
+
+.courses-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #6a4bcf;
+  margin-bottom: 10px;
+}
+
+.courses-subtitle {
+  font-size: 16px;
+  color: #666;
+}
+
+.courses-list {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  color: #888;
+  font-size: 16px;
+}

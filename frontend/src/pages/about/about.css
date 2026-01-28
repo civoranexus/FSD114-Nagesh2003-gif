@@ -1,0 +1,39 @@
+.about-section {
+  min-height: 60vh;
+  padding: 90px 20px;
+  background: #E0F7FA;
+  display: flex;
+  align-items: center;
+}
+
+.about-container {
+  max-width: 900px;
+  margin: auto;
+  background: #012136;
+  padding: 60px 40px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(7, 13, 21, 0.35);
+  text-align: center;
+}
+
+.about-heading {
+  font-size: 34px;
+  color: #1B9AAA;
+  margin-bottom: 25px;
+}
+
+.about-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #CCE7EC;
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: 40px 25px;
+  }
+
+  .about-heading {
+    font-size: 28px;
+  }
+}
