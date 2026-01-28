@@ -21,6 +21,7 @@ export const AuthProvider = ({ children }) => {
       });
 
       toast.success(response.data.message);
+      console.log("Login Response:", response.data);
       localStorage.setItem("token", response.data.token);
 
       setCurrentUser(response.data.user);
@@ -37,16 +38,18 @@ export const AuthProvider = ({ children }) => {
   };
 
   // 📝 Register
-  const signUp = async (name, email, password, navigate) => {
+  const signUp = async (name, email, password, role, navigate) => {
     setActionLoading(true);
     try {
       const response = await axios.post(`${server}/api/user/register`, {
         name,
         email,
         password,
+        role
       });
 
       toast.success(response.data.message);
+      console.log("Registration Response:", response.data);
       localStorage.setItem(
         "activationToken",
         response.data.activationToken
@@ -72,6 +75,7 @@ export const AuthProvider = ({ children }) => {
       });
 
       toast.success(response.data.message);
+      console.log("OTP Verification Response:", response.data);
       localStorage.clear();
       navigate("/login");
     } catch (err) {
@@ -91,6 +95,7 @@ export const AuthProvider = ({ children }) => {
       });
 
       setCurrentUser(response.data.user);
+      console.log("User Profile:", response.data);
       setAuthenticated(true);
     } catch (err) {
       setAuthenticated(false);

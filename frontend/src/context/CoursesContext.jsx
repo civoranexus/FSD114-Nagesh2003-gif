@@ -18,6 +18,7 @@ export const CoursesProvider = ({ children }) => {
       setIsLoading(true);
       const response = await axios.get(`${server}/api/course/all`);
       setAllCourses(response.data.courses);
+      console.log("All Courses:", response.data.courses);
     } catch (err) {
       console.error("Failed to load courses", err);
     } finally {
@@ -33,6 +34,7 @@ export const CoursesProvider = ({ children }) => {
         `${server}/api/course/${courseId}`
       );
       setSelectedCourse(response.data.course);
+      console.log("Selected Course:", response.data.course);
     } catch (err) {
       console.error("Failed to load course", err);
     } finally {
@@ -51,6 +53,7 @@ export const CoursesProvider = ({ children }) => {
         headers: { token },
       });
       setEnrolledCourses(response.data.courses);
+      console.log("Enrolled Courses:", response.data.courses);
     } catch (err) {
       console.error("Failed to load user courses", err);
     } finally {

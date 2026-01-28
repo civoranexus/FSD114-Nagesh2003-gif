@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./auth.css";
+import "./auth1.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
@@ -10,10 +10,11 @@ const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("user"); // Default role
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    signUp(name, email, password, navigate);
+    signUp(name, email, password, role, navigate); // Pass role to signUp
   };
 
   return (
@@ -46,6 +47,17 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+
+          {/* Role dropdown */}
+          <select
+            value={role}
+            onChange={(e) => setRole(e.target.value)}
+            required
+            className="role-select"
+          >
+            <option value="User">User</option>
+            <option value="instructor">Instructor</option>
+          </select>
 
           <button disabled={actionLoading} className="auth-btn">
             {actionLoading ? "Creating..." : "Register"}
