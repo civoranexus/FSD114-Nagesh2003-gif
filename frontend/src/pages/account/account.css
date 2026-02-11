@@ -3,34 +3,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #E0F7FA;
+  background: #CCE7EC; /* light */
   padding: 60px 20px;
 }
 
 .account-card {
-  background: #012136;
+  background: #012136; /* primary */
   width: 100%;
   max-width: 420px;
   padding: 40px 30px;
   border-radius: 18px;
-  box-shadow: 0 20px 40px rgba(7, 13, 21, 0.35);
+  box-shadow: 0 20px 40px rgba(1, 33, 54, 0.35);
   text-align: center;
 }
 
 .account-title {
   font-size: 28px;
-  color: #1B9AAA;
+  color: #4C97A8; /* secondary */
   margin-bottom: 25px;
 }
 
 .account-details p {
-  color: #CCE7EC;
+  color: #CCE7EC; /* light */
   font-size: 15px;
   margin-bottom: 10px;
 }
 
 .account-details span {
-  color: #76D6E1;
+  color: #4C97A8; /* secondary */
   font-weight: 600;
 }
 
@@ -55,17 +55,17 @@
 }
 
 .account-btn.primary {
-  background: #1B9AAA;
-  color: #070D15;
+  background: #4C97A8; /* secondary */
+  color: #01181F; /* dark */
 }
 
 .account-btn.secondary {
-  background: #02394A;
-  color: #E0F7FA;
+  background: #02394A; /* accent */
+  color: #CCE7EC; /* light */
 }
 
 .account-btn.danger {
-  background: #b91c1c;
+  background: #b91c1c; /* keep red for danger */
   color: #ffffff;
 }
 

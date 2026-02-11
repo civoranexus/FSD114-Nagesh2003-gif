@@ -1,7 +1,7 @@
 .study-wrapper {
   min-height: 85vh;
   padding: 80px 20px;
-  background: linear-gradient(135deg, #f7f6ff, #ece9ff);
+  background: linear-gradient(135deg, #CCE7EC, #ffffff);
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -12,11 +12,12 @@
   max-width: 900px;
   width: 100%;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(1, 33, 54, 0.12);
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 30px;
   padding: 30px;
+  border: 1px solid #CCE7EC;
 }
 
 .study-image {
@@ -24,17 +25,18 @@
   height: 260px;
   object-fit: cover;
   border-radius: 14px;
+  border: 2px solid #4C97A8;
 }
 
 .study-info h2 {
   font-size: 28px;
-  color: #5f3dc4;
+  color: #012136; /* primary */
   margin-bottom: 12px;
 }
 
 .study-desc {
   font-size: 16px;
-  color: #555;
+  color: #02394A; /* accent */
   line-height: 1.6;
   margin-bottom: 18px;
 }
@@ -44,7 +46,7 @@
   flex-direction: column;
   gap: 6px;
   font-size: 14px;
-  color: #777;
+  color: #02394A; /* accent */
   margin-bottom: 24px;
 }
 
@@ -52,7 +54,7 @@
   display: inline-block;
   padding: 12px 22px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #6a4bcf, #8f6fff);
+  background: linear-gradient(135deg, #4C97A8, #02394A);
   color: #ffffff;
   font-size: 15px;
   font-weight: 500;

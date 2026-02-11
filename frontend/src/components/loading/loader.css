@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #E0F7FA;
+  background: #CCE7EC; /* light */
 }
 
 .spinner-container {
@@ -17,14 +17,14 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  border: 6px solid rgba(27, 154, 170, 0.25);
-  border-top-color: #1B9AAA;
+  border: 6px solid rgba(76, 151, 168, 0.25); /* secondary */
+  border-top-color: #4C97A8; /* secondary */
   animation: spin 1s linear infinite;
 }
 
 .loading-text {
   font-size: 14px;
-  color: #02394A;
+  color: #02394A; /* accent */
   letter-spacing: 0.5px;
 }
 

@@ -1,6 +1,6 @@
 .courses-wrapper {
   padding: 90px 20px;
-  background: linear-gradient(to bottom, #f8f9ff, #ffffff);
+  background: linear-gradient(to bottom, #CCE7EC, #ffffff);
   min-height: 70vh;
   text-align: center;
 }
@@ -12,13 +12,13 @@
 .courses-title {
   font-size: 36px;
   font-weight: 700;
-  color: #6a4bcf;
+  color: #012136; /* primary */
   margin-bottom: 10px;
 }
 
 .courses-subtitle {
   font-size: 16px;
-  color: #666;
+  color: #02394A; /* accent */
 }
 
 .courses-list {
@@ -31,6 +31,6 @@
 
 .empty-state {
   grid-column: 1 / -1;
-  color: #888;
+  color: #4C97A8; /* secondary */
   font-size: 16px;
 }

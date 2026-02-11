@@ -1,14 +1,14 @@
 .learner-dashboard {
   padding: 90px 20px;
   min-height: 60vh;
-  background: linear-gradient(135deg, #f9f9ff, #f1edff);
+  background: linear-gradient(135deg, #CCE7EC, #ffffff);
   text-align: center;
 }
 
 .dashboard-header h2 {
   font-size: 32px;
   font-weight: 600;
-  color: #6a4bcf;
+  color: #012136; /* primary */
   margin-bottom: 40px;
 }
 
@@ -23,5 +23,5 @@
 .empty-text {
   grid-column: 1 / -1;
   font-size: 16px;
-  color: #666;
+  color: #02394A; /* accent */
 }

@@ -1,6 +1,6 @@
 .main-footer {
-  background: #02394A;
-  border-top: 4px solid #1B9AAA;
+  background: #012136; /* primary */
+  border-top: 4px solid #4C97A8; /* secondary */
   padding: 40px 20px;
   margin-top: 80px;
   position: sticky;
@@ -13,19 +13,19 @@
 }
 
 .footer-copy {
-  color: #E0F7FA;
+  color: #CCE7EC; /* light */
   font-size: 16px;
   margin-bottom: 15px;
 }
 
 .footer-credit {
-  color: #76D6E1;
+  color: #4C97A8; /* secondary */
   font-size: 14px;
   margin-top: 15px;
 }
 
 .footer-credit span {
-  color: #1B9AAA;
+  color: #CCE7EC;
   font-weight: 600;
 }
 
@@ -35,12 +35,12 @@
 
 .footer-icons a {
   font-size: 24px;
-  color: #E0F7FA;
+  color: #CCE7EC;
   margin: 0 12px;
   transition: 0.3s;
 }
 
 .footer-icons a:hover {
-  color: #1B9AAA;
+  color: #4C97A8; /* secondary */
   transform: scale(1.2);
 }

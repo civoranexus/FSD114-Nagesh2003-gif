@@ -3,13 +3,15 @@
   gap: 20px;
   padding: 20px;
   min-height: 80vh;
+  background: #CCE7EC; /* light */
 }
 
 .video-section {
   flex: 2;
-  background: #fff;
+  background: #ffffff;
   padding: 15px;
   border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(1, 33, 54, 0.12);
 }
 
 .video-section video {
@@ -22,7 +24,7 @@
 }
 
 .lecture-item {
-  background: #fff;
+  background: #ffffff;
   padding: 10px;
   margin-top: 10px;
   border-radius: 6px;
@@ -30,23 +32,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border: 1px solid #CCE7EC;
+  color: #02394A;
 }
 
 .lecture-item:hover,
 .lecture-item.active {
-  background: #8a4baf;
-  color: #fff;
+  background: #4C97A8; /* secondary */
+  color: #01181F;
 }
 
 .tick {
-  color: lime;
+  color: #4C97A8; /* secondary */
 }
 
 .delete-btn {
   width: 100%;
   margin-top: 5px;
-  background: #ff4d4f;
-  color: #fff;
+  background: #b91c1c; /* danger */
+  color: #ffffff;
   border: none;
   padding: 6px;
   border-radius: 6px;
@@ -56,24 +60,28 @@
 .progress-box {
   width: 60%;
   margin: 10px auto;
-  background: #333;
-  color: #fff;
+  background: #012136; /* primary */
+  color: #CCE7EC; /* light */
   padding: 8px;
   text-align: center;
   border-radius: 6px;
 }
 
 .lecture-form {
-  background: #fff;
+  background: #ffffff;
   padding: 15px;
   border-radius: 10px;
   margin: 10px 0;
+  border: 1px solid #CCE7EC;
 }
 
 .lecture-form input {
   width: 100%;
   margin-bottom: 10px;
   padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #4C97A8;
+  color: #01181F;
 }
 
 /* 📱 Responsive */

@@ -4,12 +4,14 @@
   text-align: center;
   background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.4s ease;
+  box-shadow: 0 2px 6px rgba(1, 33, 54, 0.15);
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+  border: 1px solid #CCE7EC;
 }
 
 .course-card:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 16px rgba(1, 33, 54, 0.3);
+  transform: translateY(-4px);
 }
 
 .course-image {
@@ -18,16 +20,17 @@
   border-radius: 10px;
   object-fit: cover;
   margin-bottom: 10px;
+  border: 2px solid #4C97A8;
 }
 
 .course-card h3 {
   font-size: 18px;
-  color: #333;
+  color: #012136; /* primary */
   margin-bottom: 10px;
 }
 
 .course-card p {
   font-size: 14px;
-  color: #666;
+  color: #02394A; /* accent */
   margin-bottom: 5px;
 }
