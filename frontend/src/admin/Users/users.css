@@ -1,0 +1,85 @@
+.admin-users {
+  padding: 20px;
+  min-height: 80vh;
+  background-color: #CCE7EC; /* light */
+}
+
+.admin-users h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #012136; /* primary */
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(1, 33, 54, 0.12);
+  border: 1px solid #4C97A8;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+thead {
+  background: linear-gradient(135deg, #012136, #02394A);
+  color: #ffffff;
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #CCE7EC;
+  color: #01181F;
+}
+
+tbody tr:hover {
+  background-color: #CCE7EC;
+}
+
+/* Role Badges */
+.role-badge {
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #ffffff;
+  text-transform: capitalize;
+}
+
+.role-badge.admin {
+  background-color: #4C97A8; /* secondary */
+}
+
+.role-badge.user {
+  background-color: #02394A; /* accent */
+}
+
+.role-badge.superadmin {
+  background-color: #012136; /* primary */
+}
+
+.common-btn.small {
+  padding: 6px 12px;
+  font-size: 13px;
+  background-color: #4C97A8;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+}
+
+/* 📱 Mobile Friendly */
+@media (max-width: 768px) {
+  table {
+    min-width: 100%;
+  }
+
+  th,
+  td {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

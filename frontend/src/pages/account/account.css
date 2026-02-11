@@ -1,0 +1,75 @@
+.account-section {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #CCE7EC; /* light */
+  padding: 60px 20px;
+}
+
+.account-card {
+  background: #012136; /* primary */
+  width: 100%;
+  max-width: 420px;
+  padding: 40px 30px;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(1, 33, 54, 0.35);
+  text-align: center;
+}
+
+.account-title {
+  font-size: 28px;
+  color: #4C97A8; /* secondary */
+  margin-bottom: 25px;
+}
+
+.account-details p {
+  color: #CCE7EC; /* light */
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.account-details span {
+  color: #4C97A8; /* secondary */
+  font-weight: 600;
+}
+
+.account-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 25px;
+}
+
+.account-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.account-btn.primary {
+  background: #4C97A8; /* secondary */
+  color: #01181F; /* dark */
+}
+
+.account-btn.secondary {
+  background: #02394A; /* accent */
+  color: #CCE7EC; /* light */
+}
+
+.account-btn.danger {
+  background: #b91c1c; /* keep red for danger */
+  color: #ffffff;
+}
+
+.account-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
